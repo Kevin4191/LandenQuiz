@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Quiz
 {
     private $vragen = array();
@@ -59,17 +58,16 @@ class Quiz
 
     function __construct(){
         for($i = 0; $i < 10; $i++){
-        $rand = rand(0,50);
-        $vragen[$i] = $land = new Land($landenenhoofdsteden[$i][0],$landenenhoofdsteden[$i][1], "");
+        $this->vragen[$i] = $land = new Land($this->landenenhoofdsteden[$i][0],$this->landenenhoofdsteden[$i][1], "");
     }
 
-    $_SESSION["quiz"] = $vragen;
     }
 
-    function getVraag(){
-        return $this->vragen;
+    function getVraag($num){
+        return $this->vragen[$num];
     }
 
 }
+
 
 ?>
